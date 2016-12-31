@@ -9,7 +9,7 @@ fi
 #set -o xtrace
 alias debug="set -o nounset; set -o xtrace"
 
-ulimit -S -c 0 
+ulimit -S -c 0
 set -o notify
 set -o noclobber
 set -o ignoreeof
@@ -27,7 +27,7 @@ shopt -s histappend histreedit histverify
 shopt -s extglob
 
 shopt -u mailwarn
-unset MAILCHECK 
+unset MAILCHECK
 
 
 # Normal Colors
