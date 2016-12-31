@@ -230,12 +230,17 @@ alias df='df -kTh'
 
 # Git
 gitter() {
-    git status; git add * && git add *.*.*; git commit -m "`echo $1`"; git push; git status;
+    git status; git pull; git add * && git add *.*.*; git commit -m "`echo $1`"; git push; git status;
+}
+
+# Dotfiles
+dotpush() {
+  pushd ~/.dotfiles; gitter "`echo $1`";
 }
 
 
-# Power 
-alias reboot='sudo shutdown -r now' 
+# Power
+alias reboot='sudo shutdown -r now'
 alias shutdown='sudo shutdown'
 
 # Network
