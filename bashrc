@@ -230,7 +230,7 @@ alias df='df -kTh'
 
 # Git
 gitter() {
-    git status; git add *.*; git commit -m "`echo $1`"; git push; git status;
+    git status; git add *; git commit -m "`echo $1`"; git push; git status;
 }
 
 

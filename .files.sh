@@ -36,7 +36,7 @@ else
 fi
 }
 
-install_vim () {
+prep_vim () {
 if [ -f /bin/rake -o -f /usr/bin/rake ]; then
     if [[ -f /etc/arch-release ]]; then
         sudo pacman -S rake
@@ -55,4 +55,5 @@ fi
 }
 
 install_zsh
-install_vim
+prep_vim
+
