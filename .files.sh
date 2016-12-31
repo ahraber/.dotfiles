@@ -2,7 +2,7 @@
 
 dir=~/.dotfiles
 odir=$dir/old
-files="bashrc vimrc vim zshrc oh-my-zsh"
+files="bashrc vim vimrc vimrc.after zshrc oh-my-zsh"
 
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $odir
