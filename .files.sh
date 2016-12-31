@@ -2,13 +2,13 @@
 
 dir=~/.dotfiles
 odir=$dir/old
-files="bashrc vimrc vim zshrc oh-my-zsh"
+files="bashrc vim vimrc vimrc.after zshrc oh-my-zsh"
 
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $odir
 
 for f in $files; do
-    mv ~/.$f $odir 
+    mv ~/.$f $odir
     ln -s $dir/$f ~/.$f
 done
 
@@ -22,8 +22,8 @@ if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     fi
 else
     if [[ -f /etc/arch-release ]]; then
-	sudo pacman -S zsh
-	install_zsh
+        sudo pacman -S zsh
+        install_zsh
     fi
     if [[ -f /etc/redhat-release ]]; then
         sudo yum install zsh
@@ -36,4 +36,23 @@ else
 fi
 }
 
+install_vim () {
+if [ -f /bin/rake -o -f /usr/bin/rake ]; then
+    if [[ -f /etc/arch-release ]]; then
+        sudo pacman -S rake
+        /bin/bash $dir/vim/bootstrap.sh
+    fi
+    if [[ -f /etc/redhat-release ]]; then
+        sudo yum install zsh
+        /bin/bash $dir/vim/bootstrap.sh
+
+    fi
+    if [[ -f /etc/debian_version ]]; then
+        sudo apt-get install zsh
+        /bin/bash $dir/vim/bootstrap.sh
+    fi
+fi
+}
+
 install_zsh
+install_vim
