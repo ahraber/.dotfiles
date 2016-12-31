@@ -39,16 +39,16 @@ fi
 prep_vim () {
 if [ -f /bin/rake -o -f /usr/bin/rake ]; then
     if [[ -f /etc/arch-release ]]; then
-        sudo pacman -S rake
+        sudo pacman -S ack ctags git ruby rake
         /bin/bash $dir/vim/bootstrap.sh
     fi
     if [[ -f /etc/redhat-release ]]; then
-        sudo yum install zsh
+        sudo yum install ack ctags git ruby zsh
         /bin/bash $dir/vim/bootstrap.sh
 
     fi
     if [[ -f /etc/debian_version ]]; then
-        sudo apt-get install zsh
+        sudo apt-get install ack ctags git ruby zsh
         /bin/bash $dir/vim/bootstrap.sh
     fi
 fi

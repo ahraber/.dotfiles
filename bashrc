@@ -235,7 +235,7 @@ gitter() {
 
 # Dotfiles
 dotpush() {
-  pushd ~/.dotfiles; gitter "`echo $1`";
+  pushd ~/.dotfiles; gitter "`echo $1`"; popd;
 }
 
 
