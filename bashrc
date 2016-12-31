@@ -213,6 +213,7 @@ alias ..='cd ..'
 alias leaf='screen -d -m leafpad'
 alias wireshark='screen -d -m wireshark-gtk'
 alias npp='wine64 .wine/drive_c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe &'
+alias vi='vim'
 
 # Pretty-print of some PATH variables:
 alias path='echo -e ${PATH//:/\\n}'
