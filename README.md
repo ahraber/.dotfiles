@@ -1,5 +1,3 @@
-# .dotfiles
-# contains: bashrc, zsh, i3 installation 
+# bashrc, zsh, i3 installation, etc. 
 
-#clone repo in home then run '/bin/bash ~/.dotfiles/.files.sh'
-git clone http;//github.com/ahraber/.dotfiles && ./.dotfiles/.files.sh
+git clone http://github.com/ahraber/.dotfiles && ./.dotfiles/.files.sh
