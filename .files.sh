@@ -40,7 +40,13 @@ install_i3 () {
     sudo pacman -S i3-wm i3 i3lock i3status
 }
 
+git() {
+    git config --global user.email "alexhraber@gmail.com"
+    git config --global user.name "Alex Raber"
+}
+
 install_zsh
 install_i3
+git
 
 . ~/.bashrc
