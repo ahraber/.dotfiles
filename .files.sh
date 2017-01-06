@@ -41,7 +41,7 @@ if [[ ! -d /usr/lib/auraora/ ]]; then
     rm -rf *.git *.bz2
     popd
 else
-    echo "Aurora exsists"
+    echo "Aurora exists"
     firefox &
 fi
 }
