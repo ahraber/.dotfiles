@@ -2,7 +2,7 @@
 
 dir=~/.dotfiles
 odir=$dir/old
-files="bashrc vim vimrc vimrc.after zshrc oh-my-zsh"
+files="bashrc zshrc oh-my-zsh xinitrc"
 
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $odir
@@ -36,24 +36,10 @@ else
 fi
 }
 
-prep_vim () {
-if [ -f /bin/rake -o -f /usr/bin/rake ]; then
-    if [[ -f /etc/arch-release ]]; then
-        sudo pacman -S ack ctags git ruby rake
-        /bin/bash $dir/vim/bootstrap.sh
-    fi
-    if [[ -f /etc/redhat-release ]]; then
-        sudo yum install ack ctags git ruby zsh
-        /bin/bash $dir/vim/bootstrap.sh
-
-    fi
-    if [[ -f /etc/debian_version ]]; then
-        sudo apt-get install ack ctags git ruby zsh
-        /bin/bash $dir/vim/bootstrap.sh
-    fi
-fi
+install_i3 () {
+    sudo pacman -S i3-wm i3 i3lock i3status
 }
 
 install_zsh
-prep_vim
+install_i3
 
