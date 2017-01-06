@@ -43,3 +43,4 @@ install_i3 () {
 install_zsh
 install_i3
 
+. ~/.bashrc
