@@ -5,6 +5,12 @@ if [ -f /etc/bashrc ]; then
       . /etc/bashrc   # --> Read /etc/bashrc, if present.
 fi
 
+
+## 4k monitor - arandr
+#/bin /bash ~/.screenlayout/4k.sh
+
+
+
 #set -o nounset
 #set -o xtrace
 alias debug="set -o nounset; set -o xtrace"
