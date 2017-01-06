@@ -166,27 +166,27 @@ function job_color()
 
 
 PROMPT_COMMAND="history -a"
-case ${TERM} in
-  *term | rxvt | linux)
-        PS1="\[\$(load_color)\][\A\[${NC}\] "
-        # Time of day (with load info):
-        PS1="\[\$(load_color)\][\A\[${NC}\] "
-        # User@Host (with connection type info):
-        PS1=${PS1}"\[${SU}\]\u\[${NC}\]@\[${CNX}\]\h\[${NC}\] "
-        # PWD (with 'disk space' info):
-        PS1=${PS1}"\[\$(disk_color)\]\W]\[${NC}\] "
-        # Prompt (with 'job' info):
-        PS1=${PS1}"\[\$(job_color)\]>\[${NC}\] "
-        # Set title of current xterm:
-        PS1=${PS1}"\[\e]0;[\u@\h] \w\a\]"
-        ;;
-    *)
-        PS1="(\A \u@\h \W) > " # --> PS1="(\A \u@\h \w) > "
-                               # --> Shows full pathname of current dir.
-        ;;
-esac
-
-# PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
+#case ${TERM} in
+#  *term | rxvt | linux)
+#        PS1="\[\$(load_color)\][\A\[${NC}\] "
+#        # Time of day (with load info):
+#        PS1="\[\$(load_color)\][\A\[${NC}\] "
+#        # User@Host (with connection type info):
+#        PS1=${PS1}"\[${SU}\]\u\[${NC}\]@\[${CNX}\]\h\[${NC}\] "
+#        # PWD (with 'disk space' info):
+#        PS1=${PS1}"\[\$(disk_color)\]\W]\[${NC}\] "
+#        # Prompt (with 'job' info):
+#        PS1=${PS1}"\[\$(job_color)\]>\[${NC}\] "
+#        # Set title of current xterm:
+#        PS1=${PS1}"\[\e]0;[\u@\h] \w\a\]"
+#        ;;
+#    *)
+#        PS1="(\A \u@\h \W) > " # --> PS1="(\A \u@\h \w) > "
+#                               # --> Shows full pathname of current dir.
+#        ;;
+#esac
+#
+PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
 export PS1="[\[$(tput sgr0)\]\[\033[38;5;1m\]\t\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;1m\]-\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;1m\]\d\[$(tput sgr0)\]\[\033[38;5;15m\]] \[$(tput sgr0)\]\[\033[38;5;10m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;6m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;25m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]\[\033[38;5;226m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
 
