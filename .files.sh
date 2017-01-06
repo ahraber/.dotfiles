@@ -41,6 +41,16 @@ install_i3 () {
     startx
 }
 
+install_firefox_dev () {
+if [[ ! -d /usr/lib/auraora/ ]]; then 
+    pushd $dir/firefox && tar -xvf firefox*
+    sudo unlink /usr/bin/firefox
+    sudo mv firefox /usr/lib/aurora
+    sudo ln -s /usr/lib/aurora/firefox /usr/bin/firefox
+    popd
+}
+
 . ~/.bashrc
 install_zsh
+install_firefox_dev
 install_i3
