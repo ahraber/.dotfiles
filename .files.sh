@@ -2,7 +2,7 @@
 
 dir=~/.dotfiles
 odir=$dir/old
-files="bashrc i3 xinitrc gitconfig"
+files="bashrc i3 screenlayout xinitrc gitconfig"
 
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $odir
