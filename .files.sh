@@ -21,18 +21,8 @@ if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
         chsh -s $(which zsh)
     fi
 else
-    if [[ -f /etc/arch-release ]]; then
-        sudo pacman -S zsh
-        install_zsh
-    fi
-    if [[ -f /etc/redhat-release ]]; then
-        sudo yum install zsh
-        install_zsh
-    fi
-    if [[ -f /etc/debian_version ]]; then
-        sudo apt-get install zsh
-        install_zsh
-    fi
+    sudo pacman -S zsh
+    install_zsh
 fi
 }
 
@@ -41,16 +31,22 @@ install_i3 () {
     startx
 }
 
-install_firefox_dev () {
-if [[ ! -d /usr/lib/auraora/ ]]; then 
-    pushd $dir/firefox && tar -xvf firefox*
+install_aurora () {
+if [[ ! -d /usr/lib/auraora/ ]]; then
+    pushd /usr/lib
+    git clone http://github.com/ahraber/aurora.git
+    tar -xvf /usr/lib/aurora/aurora*
     sudo unlink /usr/bin/firefox
-    sudo mv firefox /usr/lib/aurora
     sudo ln -s /usr/lib/aurora/firefox /usr/bin/firefox
+    rm -rf *.git *.bz2
     popd
+else
+    echo "Aurora exsists"
+    firefox &
+fi
 }
 
 . ~/.bashrc
 install_zsh
-install_firefox_dev
+install_aurora
 install_i3
