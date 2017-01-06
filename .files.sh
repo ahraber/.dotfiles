@@ -35,7 +35,7 @@ if [ ! -d /usr/lib/aurora/ ]; then
     pushd /usr/lib
     sudo git clone http://github.com/ahraber/aurora.git
     pushd /usr/lib/aurora
-    sudo rm -rf *.git; sudo tar -xvf aurora*; sudo rm -rf *.bz2
+    sudo rm -rf .git; sudo tar -xvf aurora*; sudo rm -rf *.bz2
     popd; pushd /usr/bin
     sudo unlink firefox
     sudo ln -s /usr/lib/aurora/firefox firefox
@@ -48,5 +48,5 @@ install_zsh
 install_aurora
 install_i3
 
-startx
-firefox &
+#startx
+#firefox &
