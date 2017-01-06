@@ -38,9 +38,9 @@ fi
 
 install_i3 () {
     sudo pacman -S i3-wm i3 i3lock i3status
+    startx
 }
 
+. ~/.bashrc
 install_zsh
 install_i3
-
-. ~/.bashrc
