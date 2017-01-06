@@ -28,21 +28,18 @@ fi
 
 install_i3 () {
     sudo pacman -S i3-wm i3 i3lock i3status
-    startx
 }
 
 install_aurora () {
-if [[ ! -d /usr/lib/auraora/ ]]; then
+if [ ! -d /usr/lib/aurora/ ]; then
     pushd /usr/lib
-    git clone http://github.com/ahraber/aurora.git
-    tar -xvf /usr/lib/aurora/aurora*
-    sudo unlink /usr/bin/firefox
-    sudo ln -s /usr/lib/aurora/firefox /usr/bin/firefox
-    rm -rf *.git *.bz2
-    popd
-else
-    echo "Aurora exists"
-    firefox &
+    sudo git clone http://github.com/ahraber/aurora.git
+    pushd /usr/lib/aurora
+    sudo rm -rf *.git; sudo tar -xvf aurora*; sudo rm -rf *.bz2
+    popd; pushd /usr/bin
+    sudo unlink firefox
+    sudo ln -s /usr/lib/aurora/firefox firefox
+    popd; popd
 fi
 }
 
@@ -50,3 +47,6 @@ fi
 install_zsh
 install_aurora
 install_i3
+
+startx
+firefox &
