@@ -254,9 +254,13 @@ alias mtr='mtr -i 5 -o SRDLNBAVGJMXI'
 
 # Other
 alias virc='vi ~/.bashrc'
-alias src='. ~/.bashrc'
+#alias src='. ~/.bashrc'
+
+# Home
+alias osmc='ssh osmc@10.0.0.141'
 
 # Work
+alias syn='killall synergys && synergys -c ~/.synergy.conf && ssh alex@10.0.0.114 "sudo killall synergys; killall synergyc && synergyc 10.0.0.101"'
 alias worktop='alex@10.0.0.114'
 alias work='ssh -A alex@10.0.0.114'
 alias pingw='ping -W 60 -i .2 -c 3600 10.0.0.114'
