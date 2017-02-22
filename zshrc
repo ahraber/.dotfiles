@@ -7,7 +7,8 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="random"
+ZSH_THEME="gentoo"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -83,3 +84,93 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+
+alias h='history'
+alias j='jobs -l'
+alias which='type -a'
+alias ..='cd ..'
+
+# Programs
+alias leaf='screen -d -m leafpad'
+alias wireshark='screen -d -m wireshark-gtk'
+alias npp='wine64 .wine/drive_c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe &'
+alias vi='vim'
+
+# Pretty-print of some PATH variables:
+alias path='echo -e ${PATH//:/\\n}'
+alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
+
+# Package Managemnet
+alias pac='sudo pacman -Sy'
+alias aur='yaourt -aSy'
+alias pkr='/bin/bash ~/packer/packer'
+
+alias du='du -kh'    # Makes a more readable output.
+alias df='df -kTh'
+
+
+# Git
+gitter() {
+    git status; git pull; git add * && git add *.*.*; git commit -m "`echo $1`"; git push; git status;
+}
+
+# Dotfiles
+dotpush() {
+  pushd ~/.dotfiles; gitter "`echo $1`"; popd;
+}
+
+
+# Power
+alias reboot='sudo shutdown -r now'
+alias shutdown='sudo shutdown'
+
+# Network
+alias mtr='mtr -i 5 -o SRDLNBAVGJMXI'
+
+# Other
+alias virc='vi ~/.zshrc'
+alias src='. ~/.zshrc'
+
+# Work
+alias syn='killall synergys && /usr/bin/synergys -c ~/.synergy.conf && ssh alex@10.0.0.114 "sudo killall synergy* && synergyc 10.0.0.101"'
+WORKTOP='alex@10.0.0.114'
+#alias work='ssh -A alex@10.0.0.114'
+alias work='ssh -A `echo $WORKTOP`'
+alias pingw='ping -W 60 -i .2 -c 3600 10.0.0.114'
+
+function workstat() {
+  if [ pingw ]; then
+    if work "fping -I tun0 10.64.24.8"; then
+      echo "work vpn established"
+    else
+      echo "work vpn down, reconnecting"
+      if work "/bin/bash /home/alex/scripts/vpn.sh"; then
+        echo "work vpn established"
+      else
+        echo "work vpn not establishing" 
+      fi
+    fi
+  else
+    echo "work laptop unavailable"
+  fi
+}
+
+# Add colors for filetype and  human-readable sizes by default on 'ls':
+alias ls='ls -lah --color'
+alias lx='ls -lXB'         #  Sort by extension.
+alias lk='ls -lSr'         #  Sort by size, biggest last.
+alias lt='ls -ltr'         #  Sort by date, most recent last.
+alias lc='ls -ltcr'        #  Sort by/show change time,most recent last.
+alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
+
+# The ubiquitous 'll': directories first, with alphanumeric sorting:
+alias ll="ls -lv --group-directories-first"
+alias lm='ll |more'        #  Pipe through 'more'
+alias lr='ll -R'           #  Recursive ls.
+alias la='ll -A'           #  Show hidden files.
+alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
